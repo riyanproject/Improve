@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import './TitleCards.css';
 import { Link } from 'react-router-dom';
-import Cards_data from '../../assets/cards/Cards_data';
+import Cards_data from '../../assets/cards/cards_data4';
 
-const TitleCards = ({ title }) => {
+const TitleCards4 = ({ title }) => {
   const cardsRef = useRef();
 
   // Scroll handler function
@@ -36,4 +36,4 @@ const TitleCards = ({ title }) => {
   );
 };
 
-export default TitleCards;
+export default TitleCards4;

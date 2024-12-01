@@ -15,7 +15,56 @@ import card_img14 from './card14.jpg';
 import card_img15 from './card15.jpg';
 
 
-const cards_data = [
+const cards_data2 = [
+    {
+        id:'10',
+        image:card_img10,
+        name:"Moaz",
+        url:'https://www.youtube.com/watch?v=d32R6JS4h9I',
+        published_at:'',
+        type:''
+    },
+    {
+        id:'11',
+        image:card_img11,
+        name:"Joe Rogan",
+        url:'https://www.youtube.com/watch?v=oAkQ4hX17N8',
+        published_at:'',
+        type:''
+    },
+    {
+        id:'12',
+        image:card_img12,
+        name:"Big Esa",
+        url:'https://www.youtube.com/watch?v=zjzPCaPidQ8',
+        published_at:'',
+        type:''
+    },
+
+    {
+        id:'13',
+        image:card_img13,
+        name:"Colin The Chad",
+        url:'https://www.youtube.com/watch?v=0wOqQRRV6eE',
+        published_at:'',
+        type:''
+    },
+    {
+        id:'14',
+        image:card_img14,
+        name:"Khabib",
+        url:'https://www.youtube.com/watch?v=CU8pKyCs4_o',
+        published_at:'',
+        type:''
+    },
+    {
+        id:'15',
+        image:card_img15,
+        name:"Alex Harmozi",
+        url:'https://www.youtube.com/watch?v=s5_5tisYLT0',
+        published_at:'',
+        type:''
+    },
     {
         id:'1',
         image:card_img1,
@@ -90,54 +139,7 @@ const cards_data = [
         published_at:'',
         type:''
     },
-    {
-        id:'10',
-        image:card_img10,
-        name:"Moaz",
-        url:'https://www.youtube.com/watch?v=d32R6JS4h9I',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'11',
-        image:card_img11,
-        name:"Joe Rogan",
-        url:'https://www.youtube.com/watch?v=oAkQ4hX17N8',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'12',
-        image:card_img12,
-        name:"Big Esa",
-        url:'https://www.youtube.com/watch?v=zjzPCaPidQ8',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'13',
-        image:card_img13,
-        name:"Colin The Chad",
-        url:'https://www.youtube.com/watch?v=0wOqQRRV6eE',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'14',
-        image:card_img14,
-        name:"Khabib",
-        url:'https://www.youtube.com/watch?v=CU8pKyCs4_o',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'15',
-        image:card_img15,
-        name:"Alex Harmozi",
-        url:'https://www.youtube.com/watch?v=s5_5tisYLT0',
-        published_at:'',
-        type:''
-    },
+
 ]
 
-export default cards_data;
+export default cards_data2;

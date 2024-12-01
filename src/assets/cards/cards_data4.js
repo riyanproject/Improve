@@ -15,56 +15,32 @@ import card_img14 from './card14.jpg';
 import card_img15 from './card15.jpg';
 
 
-const cards_data = [
-    {
-        id:'1',
-        image:card_img1,
-        name:"Penrose",
-        url: 'https://www.youtube.com/watch?v=O_IhvUVX1VA',
-        published_at: '2024-11-20',
-        type: 'Improve',
-    },
-    {
-        id:'2',
-        image:card_img2,
-        name:"Andrew Tate ",
-        url:'https://www.youtube.com/embed/WbnaNrgFZu4?start=282',
-        published_at:'2024-10-1',
-        type:'Improve'
-    },
-    {
-        id:'3',
-        image:card_img3,
-        name:"david goggins",
-        url:'https://www.youtube.com/watch?v=ngvOyccUzzY',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'4',
-        image:card_img4,
-        name:"Fame Inspector",
-        url:'https://www.youtube.com/watch?v=t_9hPrBuSu8',
-        published_at:'',
-        type:''
-    },
-    {
-        id:'5',
-        image:card_img5,
-        name:"C7L",
-        url:'https://www.youtube.com/watch?v=3fgWINgigMk',
-        published_at:'',
-        type:''
-    },
-    {
-        
-        id:'6',
-        image:card_img6,
-        name:"Neeraj Valia",
-        url:'https://www.youtube.com/watch?v=zcpUi7RrQfI',
-        published_at:'',
-        type:''
-    },
+const cards_data4 = [
+  {
+    id:'4',
+    image:card_img4,
+    name:"Fame Inspector",
+    url:'https://www.youtube.com/watch?v=t_9hPrBuSu8',
+    published_at:'',
+    type:''
+},
+{
+    id:'5',
+    image:card_img5,
+    name:"C7L",
+    url:'https://www.youtube.com/watch?v=3fgWINgigMk',
+    published_at:'',
+    type:''
+},
+{
+    
+    id:'6',
+    image:card_img6,
+    name:"Neeraj Valia",
+    url:'https://www.youtube.com/watch?v=zcpUi7RrQfI',
+    published_at:'',
+    type:''
+},
     {
         id:'7',
         image:card_img7,
@@ -114,6 +90,7 @@ const cards_data = [
         published_at:'',
         type:''
     },
+
     {
         id:'13',
         image:card_img13,
@@ -138,6 +115,33 @@ const cards_data = [
         published_at:'',
         type:''
     },
+    {
+        id:'1',
+        image:card_img1,
+        name:"Penrose",
+        url: 'https://www.youtube.com/watch?v=O_IhvUVX1VA',
+        published_at: '2024-11-20',
+        type: 'Improve',
+    },
+    {
+        id:'2',
+        image:card_img2,
+        name:"Andrew Tate ",
+        url:'https://www.youtube.com/embed/WbnaNrgFZu4?start=282',
+        published_at:'2024-10-1',
+        type:'Improve'
+    },
+    {
+        id:'3',
+        image:card_img3,
+        name:"david goggins",
+        url:'https://www.youtube.com/watch?v=ngvOyccUzzY',
+        published_at:'',
+        type:''
+    },
+
+
+
 ]
 
-export default cards_data;
+export default cards_data4;

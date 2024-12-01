@@ -6,6 +6,10 @@ import play_icon from '../../assets/play_icon.png'
 import info_icon from '../../assets/info_icon.png'
 import TitleCards from '../TitleCards/TitleCards'
 import Footer from '../Footer/Footer'
+import TitleCards1 from '../TitleCards/TitleCards1'
+import TitleCards2 from '../TitleCards/TitleCards2'
+import TitleCards3 from '../TitleCards/TitleCards3'
+import TitleCards4 from '../TitleCards/TitleCards4'
 
 
 const Home = () => {
@@ -13,6 +17,8 @@ const Home = () => {
     <div className='home'>
       <Navbar/>
       <div className="hero">
+      <img src={hero_banner} alt="" className='banner-img'/>
+
     </div>
     <div className="hero-caption"></div>
     <div className="hero-btns">
@@ -22,10 +28,10 @@ const Home = () => {
 
         <div className='more-cards'>
         <TitleCards title="Seek knowledge"/>
-        <TitleCards title="Motivation"/>
-        <TitleCards title="Work as a Man"/>
-        <TitleCards title="Self care"/>
-        <TitleCards title="Faith"/>
+        <TitleCards1 title="Motivation"/>
+        <TitleCards2 title="Work as a Man"/>
+        <TitleCards3 title="Self care"/>
+        <TitleCards4 title="Faith"/>
 
         </div>
         <Footer/>
