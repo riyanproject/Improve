@@ -10,6 +10,7 @@ import TitleCards1 from '../TitleCards/TitleCards1'
 import TitleCards2 from '../TitleCards/TitleCards2'
 import TitleCards3 from '../TitleCards/TitleCards3'
 import TitleCards4 from '../TitleCards/TitleCards4'
+import Playlist from '../Playlist/Playlist'
 
 
 const Home = () => {
@@ -32,8 +33,9 @@ const Home = () => {
         <TitleCards2 title="Work as a Man"/>
         <TitleCards3 title="Self care"/>
         <TitleCards4 title="Faith"/>
-
+        <Playlist></Playlist>
         </div>
+
         <Footer/>
     </div>
     
