@@ -8,6 +8,7 @@ import { auth } from './firebase';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Playlist from './Components/Playlist/Playlist'; // Import the Playlist component
+import Player1 from './Components/Player1/Player1'
 
 const App = () => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/player/:id' element={<Player />} />
+        <Route path='/player1/:id' element={<Player1 />} />
 
         <Route path='/playlist' element={<Playlist />} /> {/* Add Playlist Route */}
       </Routes>

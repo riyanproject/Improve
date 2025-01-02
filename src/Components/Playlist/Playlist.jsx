@@ -42,8 +42,10 @@ const Playlist = () => {
   }, []);
 
   const handleVideoClick = (videoID) => {
-    navigate(`/player/${videoID}`);
+    console.log("VideoId", videoID);
+    navigate(`/player1/${videoID}`);
   };
+  
 
   return (
     <div className="playlist-container">
