@@ -7,8 +7,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Playlist from './Components/Playlist/Playlist'; // Import the Playlist component
-import Player1 from './Components/Player1/Player1'
+import Playlist from './Components/Playlist/Playlist';
+import Player1 from './Components/Player1/Player1';
+import Inventory from './Components/Inventory/Inventory';  // Import the Inventory component
 
 const App = () => {
   const navigate = useNavigate();
@@ -40,8 +41,8 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/player/:id' element={<Player />} />
         <Route path='/player1/:id' element={<Player1 />} />
-
-        <Route path='/playlist' element={<Playlist />} /> {/* Add Playlist Route */}
+        <Route path='/playlist' element={<Playlist />} />
+        <Route path='/inventory' element={<Inventory />} />  {/* Add the Inventory route */}
       </Routes>
     </div>
   );

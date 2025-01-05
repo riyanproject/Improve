@@ -50,6 +50,22 @@
 .profile:hover .dropdown{
  
 }
+.inventory{
+  margin-top: 50px;
+  align-items: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 20px;
+  position: relative;
+  text-decoration: none;
+}
+/* Remove text decoration and style the inventory link */
+.inventory-link {
+  text-decoration: none;
+  color: inherit;  /* Ensure it inherits the color from the parent (navbar) */
+  font-family:'Times New Roman', Times, serif;
+
+}
+
 @media (max-width:800px) {
   .navbar{
     padding:20px 4%;

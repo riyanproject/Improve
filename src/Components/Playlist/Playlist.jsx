@@ -12,6 +12,7 @@ const Playlist = () => {
   const [link, setLink] = useState("");
   const [playlist, setPlaylist] = useState([]);
   const [videoTitles, setVideoTitles] = useState({});
+  const [favorites, setFavorites] = useState([]);  // State for favorite videos
   const cardsRef = useRef(null);
   const navigate = useNavigate();
 
@@ -72,6 +73,20 @@ const Playlist = () => {
     navigate(`/player1/${videoID}`);
   };
 
+  const toggleFavorite = (videoID) => {
+    setFavorites((prevFavorites) => 
+      prevFavorites.includes(videoID) 
+      ? prevFavorites.filter(id => id !== videoID) 
+      : [...prevFavorites, videoID]
+    );
+  };
+
+  const deleteVideo = (videoLink) => {
+    const newPlaylist = playlist.filter(link => link !== videoLink);
+    setPlaylist(newPlaylist);
+    localStorage.setItem("playlist", JSON.stringify(newPlaylist));
+  };
+
   return (
     <div className="playlist-container">
       <div className="title-cards">
@@ -101,21 +116,32 @@ const Playlist = () => {
             : "";
 
           return (
-            <div
-              key={index}
-              className="card"
-              onClick={() => handleVideoClick(videoID)}
-            >
+            <div key={index} className="card">
               <img
                 src={thumbnailUrl}
                 alt={`Thumbnail for video ${index + 1}`}
                 width="240"
-                height="135"
+                
+                onClick={() => handleVideoClick(videoID)}
               />
               <div className="video-title-container">
                 <p className="video-title">
                   {videoTitles[videoID] || "Loading..."}
                 </p>
+              </div>
+              <div className="card-buttons">
+                <button
+                  className={`button-edit ${favorites.includes(videoID) ? 'favorite' : ''}`}
+                  onClick={() => toggleFavorite(videoID)}
+                >
+                  {favorites.includes(videoID) ? '💖' : '❤︎'}
+                </button>
+                <button
+                  className="button-delete"
+                  onClick={() => deleteVideo(videoLink)}
+                >
+                  ✖
+                </button>
               </div>
             </div>
           );
