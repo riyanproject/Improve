@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import './Playlist.css'
 
 const getYouTubeVideoID = (url) => {
   const regExp = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*\?v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -10,13 +11,39 @@ const getYouTubeVideoID = (url) => {
 const Playlist = () => {
   const [link, setLink] = useState("");
   const [playlist, setPlaylist] = useState([]);
+  const [videoTitles, setVideoTitles] = useState({});
   const cardsRef = useRef(null);
   const navigate = useNavigate();
+
+  const fetchVideoTitle = async (videoID) => {
+    const url = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoID}&format=json`;
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        setVideoTitles((prev) => ({ ...prev, [videoID]: data.title }));
+      } else {
+        setVideoTitles((prev) => ({ ...prev, [videoID]: "Title not found" }));
+      }
+    } catch (error) {
+      console.error("Error fetching video title:", error);
+      setVideoTitles((prev) => ({ ...prev, [videoID]: "Error fetching title" }));
+    }
+  };
 
   useEffect(() => {
     const storedPlaylist = JSON.parse(localStorage.getItem("playlist")) || [];
     setPlaylist(storedPlaylist);
   }, []);
+
+  useEffect(() => {
+    playlist.forEach((videoLink) => {
+      const videoID = getYouTubeVideoID(videoLink);
+      if (videoID && !videoTitles[videoID]) {
+        fetchVideoTitle(videoID);
+      }
+    });
+  }, [playlist, videoTitles]);
 
   const handleAddLink = () => {
     if (link.trim()) {
@@ -42,10 +69,8 @@ const Playlist = () => {
   }, []);
 
   const handleVideoClick = (videoID) => {
-    console.log("VideoId", videoID);
     navigate(`/player1/${videoID}`);
   };
-  
 
   return (
     <div className="playlist-container">
@@ -65,7 +90,7 @@ const Playlist = () => {
           className="btn btn-secondary btn-lg"
           onClick={handleAddLink}
         >
-          Add Playlist +
+          Add to Playlist +
         </button>
       </div>
       <div className="card-list" ref={cardsRef}>
@@ -87,7 +112,11 @@ const Playlist = () => {
                 width="240"
                 height="135"
               />
-              <p>Video {index + 1}</p>
+              <div className="video-title-container">
+                <p className="video-title">
+                  {videoTitles[videoID] || "Loading..."}
+                </p>
+              </div>
             </div>
           );
         })}

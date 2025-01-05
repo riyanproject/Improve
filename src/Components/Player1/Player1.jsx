@@ -16,7 +16,7 @@ const Player1 = () => {
       <button onClick={() => navigate(-1)}>Back</button>
       <iframe
         width="100%"
-        height="100%"
+        height="640"
         src={videoUrl}
         frameBorder="0"
         allow="autoplay; encrypted-media"

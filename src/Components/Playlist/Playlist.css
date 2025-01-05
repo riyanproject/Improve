@@ -1,83 +1,43 @@
-/* Playlist.css */
-.playlist-container {
-  text-align: center;
-  padding: 20px;
-}
-
-.title-cards {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  background-color: #f8f9fa;
-  padding: 10px;
-}
-
-.title-cards h2 {
-  margin-bottom: 8px;
-}
-
-.input-container {
-  margin-bottom: 20px;
-}
-
-.input-container input {
-  margin-right: 10px;
-  padding: 10px;
-  width: 250px;
-  font-size: 1rem;
-}
-
-.input-container button {
-  padding: 10px 20px;
-  font-size: 1rem;
-}
-
-.card-list {
+.playlist-card-list {
   display: flex;
   gap: 10px;
-  overflow-x: auto; /* Allows horizontal scrolling */
-  justify-content: center;
   margin-top: 20px;
   padding-bottom: 10px;
-  scroll-snap-type: x mandatory; /* Snap scrolling */
-  scroll-behavior: smooth; /* Smooth scrolling */
+  scroll-snap-type: x mandatory; /* Smooth snap scrolling */
+  overflow-x: hidden; /* Hides the horizontal scrollbar */
+  scroll-behavior: smooth; /* Smooth scrolling behavior */
 }
 
-.card-list::-webkit-scrollbar {
-  height: 8px;
+.playlist-card-list::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
 }
 
-.card-list::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+.playlist-card {
+  display: flex;
+  flex-direction: column; /* Ensures title appears below thumbnail */
+  align-items: center;
+  scroll-snap-align: start; /* Ensures smooth snap scrolling */
+  width: 240px; /* Fixed width for cards */
+  justify-content: flex-start; /* Aligns items from the top */
 }
 
-.card-list::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 4px;
-}
-
-.card-list img {
-  width: 240px;
-  height: 135px;
+.playlist-card img {
+  width: 240px; /* Fixed width for thumbnails */
+  height: 135px; /* Fixed height for thumbnails */
   border-radius: 4px;
   cursor: pointer;
-  scroll-snap-align: start; /* Cards will snap into place */
 }
 
-.card-list .card {
-  position: relative;
-}
-
-.card-list .card p {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-family: 'Poppins', sans-serif;
-  text-decoration: none;
-  color: white;
-}
-.card-list img:hover {
+.playlist-card img:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
+}
+
+.playlist-card p {
+  margin-top: 8px; /* Space between thumbnail and title */
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
 }
