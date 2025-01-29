@@ -1,0 +1,45 @@
+.inventory{
+  padding-left: 100px;
+  margin-top: 10px;
+  font-size:50px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.favourites{
+  margin-left: 40px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-buttons {
+  position: absolute;
+  top: 10px;  /* Adjust this value to control the vertical positioning */
+  right: 10px;  /* Adjust this value to control the horizontal positioning */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-buttons {
+  opacity: 1; /* Show buttons on hover */
+}
+
+.inventory-button-delete {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inventory-button-delete:hover {
+  background-color: rgba(200, 0, 0, 0.8); /* Red hover effect */
+}

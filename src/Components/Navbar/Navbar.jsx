@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="goals">GOALS <textarea id="expandingTextarea" placeholder="Start typing..."></textarea></div>
       
       {/* Wrap "Inventory" with Link to route to new path */}
-      <div className="inventory">
+      <div className="inventory-navbar">
         <Link to="/inventory" className="inventory-link" style={{ textDecoration: 'none' }}>Inventory</Link>  {/* Specify the route */}
       </div>
       

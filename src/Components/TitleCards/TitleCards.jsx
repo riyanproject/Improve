@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 import Cards_data from '../../assets/cards/cards_data';
 
 const TitleCards = ({ title }) => {
-  const [cards, setCards] = useState(Cards_data);  // State to hold cards
+  const [cards, setCards] = useState(Cards_data);
+  const [favorites, setFavorites] = useState(() => {
+    return JSON.parse(localStorage.getItem('favorites')) || [];
+  });
   const cardsRef = useRef();
 
-  // Scroll handler function
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   const handleWheel = (event) => {
     event.preventDefault();
     cardsRef.current.scrollLeft += event.deltaY;
@@ -22,23 +28,24 @@ const TitleCards = ({ title }) => {
     };
   }, []);
 
-  // Handle favorite button click
   const toggleFavorite = (id) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === id ? { ...card, isFavorite: !card.isFavorite } : card
-      )
-    );
+    setFavorites((prevFavorites) => {
+      if (prevFavorites.includes(id)) {
+        return prevFavorites.filter((favId) => favId !== id);
+      } else {
+        return [...prevFavorites, id];
+      }
+    });
   };
 
-  // Handle delete button click
   const deleteCard = (id) => {
     setCards((prevCards) => prevCards.filter((card) => card.id !== id));
+    setFavorites((prevFavorites) => prevFavorites.filter((favId) => favId !== id)); // Also remove from favorites if deleted
   };
 
   return (
     <div className="title-cards">
-      <h2>{title ? title : 'Popular Trailers'}</h2>
+      <h2>{title || 'Popular Trailers'}</h2>
       <div className="card-list" ref={cardsRef}>
         {cards.map((card) => (
           <div className="card" key={card.id}>
@@ -48,15 +55,12 @@ const TitleCards = ({ title }) => {
             <p>{card.name}</p>
             <div className="card-buttons">
               <button
-                className={`button-edit ${card.isFavorite ? 'favorite' : ''}`}
+                className={`button-edit ${favorites.includes(card.id) ? 'favorite' : ''}`}
                 onClick={() => toggleFavorite(card.id)}
               >
-                {card.isFavorite ? '💖' : '❤︎'}
+                {favorites.includes(card.id) ? '💖' : '❤︎'}
               </button>
-              <button
-                className="button-delete"
-                onClick={() => deleteCard(card.id)}
-              >
+              <button className="button-delete" onClick={() => deleteCard(card.id)}>
                 ✖
               </button>
             </div>
